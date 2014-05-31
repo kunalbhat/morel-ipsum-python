@@ -1,4 +1,4 @@
-morel-ipsum-python
-==================
+WIP - Morel Ipsum
+=================
 
-A fungi-based 'lorem ipsum' generator
+A fungi-based 'lorem ipsum' generator.
