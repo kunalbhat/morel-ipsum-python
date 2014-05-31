@@ -1,5 +1,6 @@
 import random
 
+# Dictionary
 words = ['morel', 'crimini', 'portabella', 'maitake', 'shiitake', 'enoki',
          'oyster', 'beech', 'chanterelle', 'boletus edulis', 'cantharellus cibarius',
          'cantharellus tubaeformis', 'clitocybe nuda', 'cortinarius caperatus',
@@ -12,4 +13,26 @@ words = ['morel', 'crimini', 'portabella', 'maitake', 'shiitake', 'enoki',
          'laetiporus sulphureus', 'leccinum aurantiacum', 'leccinum scabrum', 'lepiota procera'
         ]
 
-print words
+# Generate a sentence
+def generateSentence():
+  # Randomize sentence length
+  count = random.randint(8, 16)
+
+  # Initialize sentence string
+  sentence = ""
+
+  # Randomly select a word from the dictionary
+  # and append to the sentence string
+  for x in range(count):
+    word = random.choice(words)
+
+    sentence += word + " "
+
+  # Trim trailing whitespace and capitalize sentence
+  sentence = sentence.strip().capitalize() + "."
+
+  print sentence
+
+# Call the generateSentence() function
+generateSentence()
+
