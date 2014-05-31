@@ -16,7 +16,7 @@ words = ['morel', 'crimini', 'portabella', 'maitake', 'shiitake', 'enoki',
 # Generate a sentence
 def generateSentence():
   # Randomize sentence length
-  count = random.randint(8, 16)
+  count = random.randint(4, 8)
 
   # Initialize sentence string
   sentence = ""
@@ -31,8 +31,24 @@ def generateSentence():
   # Trim trailing whitespace and capitalize sentence
   sentence = sentence.strip().capitalize() + "."
 
-  print sentence
+  return sentence
+
+# Generate a paragraph
+def generateParagraph():
+  count = random.randint(2, 4)
+
+  paragraph = ""
+
+  for x in range(count):
+    sentence = generateSentence()
+
+    paragraph += sentence + " "
+
+  # Trim trailing whitespace
+  paragraph = paragraph.strip()
+
+  print paragraph
 
 # Call the generateSentence() function
-generateSentence()
+generateParagraph()
 
