@@ -1,6 +1,11 @@
 $color_light: #bdc3c7;
 $color_dark:  #7f8c8d;
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Alice', Georgia, serif;
   font-size: 18px;
@@ -9,21 +14,28 @@ body {
 
 .site-container {
   margin: 0 auto;
-  width: 720px;
+  padding: 0 10px;
+  max-width: 740px;
+  width: 100%;
 }
 
 .header {
   margin: 3em 0;
   text-align: center;
+
+  .button { margin-top: 2em; }
 }
 
 h1, h2 {
   font-weight: normal;
+  line-height: 1.4;
   margin: 0;
   padding: 0;
 }
 
-h2 { color: #7f8c8d; }
+h1 { font-size: 42px; }
+
+h2 { color: $color_dark; }
 
 a {
   color: inherit;
@@ -35,7 +47,6 @@ a {
   border-radius: 5px;
   color: $color_light;
   display: inline-block;
-  margin-top: 1em;
   padding: 7px 20px;
 
   -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
