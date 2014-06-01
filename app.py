@@ -1,5 +1,4 @@
 # Imports
-import os
 import random
 import dictionary
 from flask import Flask, url_for, render_template, request
@@ -19,7 +18,7 @@ def generate(morel=None):
     morelipsum = []
 
     # Generate a sentence
-    def generateSentence():
+    def generate_sentence():
       # Randomize sentence length
       words = random.randint(4, 8)
 
@@ -39,7 +38,7 @@ def generate(morel=None):
       return sentence
 
     # Generate a paragraph
-    def generateParagraph(count):
+    def generate_paragraph(count):
 
       for x in range(count):
           sentences = random.randint(2, 4)
@@ -48,7 +47,7 @@ def generate(morel=None):
           paragraph = ""
 
           for sentence in range(sentences):
-              sentence = generateSentence()
+              sentence = generate_sentence()
 
               paragraph += sentence + " "
 
