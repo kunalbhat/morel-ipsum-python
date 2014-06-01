@@ -1,4 +1,4 @@
-WIP - Morel Ipsum
-=================
+Morel Ipsum
+===========
 
 A fungi-based 'lorem ipsum' generator.
