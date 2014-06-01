@@ -1,11 +1,10 @@
-# Setup Flask
-from flask import Flask
-app = Flask(__name__)
-
+# Imports
+import os
+import random
 from flask import Flask, url_for, render_template
 
-# Imports
-import random
+# Setup Flask
+app = Flask(__name__)
 
 # App routing
 @app.route("/")
