@@ -13,6 +13,8 @@ import random
 # Index page
 def index(morel=None):
 
+    morelipsum = []
+
     # Dictionary
     dictionary = ['morel ipsum', 'crimini', 'portabella', 'maitake', 'shiitake', 'enoki',
                   'oyster', 'beech', 'chanterelle', 'boletus edulis', 'cantharellus cibarius',
@@ -47,23 +49,27 @@ def index(morel=None):
       return sentence
 
     # Generate a paragraph
-    def generateParagraph():
+    def generateParagraph(count):
       sentences = random.randint(2, 4)
 
-      paragraph = ""
+      for x in range(count):
+          # Reset paragraph
+          paragraph = ""
 
-      for sentence in range(sentences):
-        sentence = generateSentence()
+          for sentence in range(sentences):
+              sentence = generateSentence()
 
-        paragraph += sentence + " "
+              paragraph += sentence + " "
 
-      # Trim trailing whitespace
-      paragraph = paragraph.strip()
+          # Trim trailing whitespace
+          paragraph = paragraph.strip()
 
-      return paragraph
+          morelipsum.append(paragraph)
+
+      return morelipsum
 
     # Call a generate function
-    morel = generateParagraph()
+    morel = generateParagraph(10)
 
     return render_template('index.html', morel=morel)
 

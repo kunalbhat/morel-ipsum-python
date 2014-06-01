@@ -11,7 +11,9 @@
         <h2>A fungi-based 'lorem ipsum' generator</h2>
       </header>
 
-      <p>{{ morel }}</p>
+      {% for paragraph in morel %}
+        <p>{{ paragraph }}</p>
+      {% endfor %}
     </div>
   </body>
 </html>
