@@ -1,54 +1,71 @@
+# Setup Flask
+from flask import Flask
+app = Flask(__name__)
+
+from flask import Flask, url_for, render_template
+
+# Imports
 import random
 
-# Dictionary
-dictionary = ['morel ipsum', 'crimini', 'portabella', 'maitake', 'shiitake', 'enoki',
-              'oyster', 'beech', 'chanterelle', 'boletus edulis', 'cantharellus cibarius',
-              'cantharellus tubaeformis', 'clitocybe nuda', 'cortinarius caperatus',
-              'craterellus cornucopioides', 'grifola frondosa', 'gyromitra esculenta',
-              'hericium erinaceus', 'hydnum repandum', 'lactarius deliciosus', 'morchella',
-              'tricholoma matsutake', 'amanita caesarea', 'armillaria mellea', 'boletus badius',
-              'chroogomphus rutilus', 'calvatia gigantea', 'calocybe gambosa', 'clavariaceae',
-              'clavulinaceae', 'coprinus comatus', 'fistulina hepatica', 'cortinarius variicolor',
-              'hygrophorus chrysodon', 'lactarius salmonicolor', 'lactarius volemus', 'lactarius subdulcis',
-              'laetiporus sulphureus', 'leccinum aurantiacum', 'leccinum scabrum', 'lepiota procera'
-             ]
+# App routing
+@app.route("/")
 
-# Generate a sentence
-def generateSentence():
-  # Randomize sentence length
-  words = random.randint(4, 8)
+# Index page
+def index(morel=None):
 
-  # Initialize sentence string
-  sentence = ""
+    # Dictionary
+    dictionary = ['morel ipsum', 'crimini', 'portabella', 'maitake', 'shiitake', 'enoki',
+                  'oyster', 'beech', 'chanterelle', 'boletus edulis', 'cantharellus cibarius',
+                  'cantharellus tubaeformis', 'clitocybe nuda', 'cortinarius caperatus',
+                  'craterellus cornucopioides', 'grifola frondosa', 'gyromitra esculenta',
+                  'hericium erinaceus', 'hydnum repandum', 'lactarius deliciosus', 'morchella',
+                  'tricholoma matsutake', 'amanita caesarea', 'armillaria mellea', 'boletus badius',
+                  'chroogomphus rutilus', 'calvatia gigantea', 'calocybe gambosa', 'clavariaceae',
+                  'clavulinaceae', 'coprinus comatus', 'fistulina hepatica', 'cortinarius variicolor',
+                  'hygrophorus chrysodon', 'lactarius salmonicolor', 'lactarius volemus', 'lactarius subdulcis',
+                  'laetiporus sulphureus', 'leccinum aurantiacum', 'leccinum scabrum', 'lepiota procera'
+                 ]
 
-  # Randomly select a word from the dictionary
-  # and append to the sentence string
-  for word in range(words):
-    word = random.choice(dictionary)
+    # Generate a sentence
+    def generateSentence():
+      # Randomize sentence length
+      words = random.randint(4, 8)
 
-    sentence += word + " "
+      # Initialize sentence string
+      sentence = ""
 
-  # Trim trailing whitespace and capitalize sentence
-  sentence = sentence.strip().capitalize() + "."
+      # Randomly select a word from the dictionary
+      # and append to the sentence string
+      for word in range(words):
+        word = random.choice(dictionary)
 
-  return sentence
+        sentence += word + " "
 
-# Generate a paragraph
-def generateParagraph():
-  sentences = random.randint(2, 4)
+      # Trim trailing whitespace and capitalize sentence
+      sentence = sentence.strip().capitalize() + "."
 
-  paragraph = ""
+      return sentence
 
-  for sentence in range(sentences):
-    sentence = generateSentence()
+    # Generate a paragraph
+    def generateParagraph():
+      sentences = random.randint(2, 4)
 
-    paragraph += sentence + " "
+      paragraph = ""
 
-  # Trim trailing whitespace
-  paragraph = paragraph.strip()
+      for sentence in range(sentences):
+        sentence = generateSentence()
 
-  return paragraph
+        paragraph += sentence + " "
 
-# Call the generateSentence() function
-print generateParagraph()
+      # Trim trailing whitespace
+      paragraph = paragraph.strip()
 
+      return paragraph
+
+    # Call a generate function
+    morel = generateParagraph()
+
+    return render_template('index.html', morel=morel)
+
+if __name__ == "__main__":
+    app.run()
