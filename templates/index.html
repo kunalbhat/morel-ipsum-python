@@ -6,26 +6,53 @@
     <title>Morel Ipsum - A fungi-based 'lorem ipsum' generator</title>
     <link href='http://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'>
     <link href="{{ url_for('static', filename='style.css') }}" rel='stylesheet'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
     <div class='site-container'>
       <header class='header'>
         <h1>Morel Ipsum</h1>
         <h2>A fungi-based 'lorem ipsum' generator</h2>
-
-        <a href='/' class='button'>Morel</a>
       </header>
 
-      <div class='content'>
-        {% for paragraph in morel %}
-          <p>{{ paragraph }}</p>
-        {% endfor %}
-      </div>
+      <div class='content hide' id='content'></div>
+
+      <div class='navigation'><a href='/generate' class='button load-more js-infinite-load hide'>~More morel, please~</a></div>
 
       <footer class='footer'>
         <p>Made by <a href='http://twitter.com/kunalbhat' target='_blank'>@kunalbhat</a> &bull; <a href='https://github.com/kunalbhat/morel-ipsum-python' target='_blank'>View on GithHub</a></p>
       </footer>
     </div>
   </body>
+  <script type='text/javascript'>
+
+    var generateContent = function() {
+      $.get('/generate', function(data) {
+        $('#content').append(data);
+      });
+    }
+
+    $(document).ready(function() {
+      $('.content').removeClass('hide');
+
+      generateContent();
+    });
+
+    $(window).scroll(function() {
+      if($(window).scrollTop() + $(window).height() == $(document).height()) {
+        $('.js-infinite-load').removeClass('hide');
+      } else {
+        $('.js-infinite-load').addClass('hide');
+      }
+    });
+
+    $('.js-infinite-load').on('click', function(event) {
+      event.preventDefault();
+
+      $(this).addClass('hide');
+
+      generateContent();
+    });
+  </script>
 </html>
 
