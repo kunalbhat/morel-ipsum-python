@@ -7,13 +7,14 @@ from flask import Flask, url_for, render_template, request
 # Setup Flask
 app = Flask(__name__)
 
-# App routing
-@app.route("/")
-
 # Index page
-def index(morel=None):
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    morelipsum = []
+# Generate route
+@app.route('/generate')
+def generate(morel=None):
 
     morelipsum = []
 
@@ -59,9 +60,10 @@ def index(morel=None):
       return morelipsum
 
     # Call a generate function
-    morel = generateParagraph(10)
+    morel = generate_paragraph(10)
 
-    return render_template('index.html', morel=morel)
+    return render_template('generate.html', morel=morel)
 
-if __name__ == "__main__":
+if __name__ == "__app__":
     app.run()
+
