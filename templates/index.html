@@ -13,15 +13,17 @@
         <h1>Morel Ipsum</h1>
         <h2>A fungi-based 'lorem ipsum' generator</h2>
 
-        <a href='/' class='button'>More fungi</a>
+        <a href='/' class='button'>Morel</a>
       </header>
 
-      {% for paragraph in morel %}
-        <p>{{ paragraph }}</p>
-      {% endfor %}
+      <div class='content'>
+        {% for paragraph in morel %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+      </div>
 
       <footer class='footer'>
-        <p>Made by <a href='http://twitter.com/kunalbhat'>@kunalbhat</a></p>
+        <p>Made by <a href='http://twitter.com/kunalbhat' target='_blank'>@kunalbhat</a> &bull; <a href='https://github.com/kunalbhat/morel-ipsum-python' target='_blank'>View on GithHub</a></p>
       </footer>
     </div>
   </body>
