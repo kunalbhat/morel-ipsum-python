@@ -55,9 +55,10 @@ def index(morel=None):
 
     # Generate a paragraph
     def generateParagraph(count):
-      sentences = random.randint(2, 4)
 
       for x in range(count):
+          sentences = random.randint(2, 4)
+
           # Reset paragraph
           paragraph = ""
 
