@@ -1,5 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Noto+Serif);
 
+$color_light: #bdc3c7;
+$color_dark:  #7f8c8d;
+
 body {
   font-family: 'Noto Serif', Georgia, serif;
   font-size: 16px;
@@ -11,7 +14,7 @@ body {
   width: 720px;
 }
 
-header {
+.header {
   margin: 3em 0;
   text-align: center;
 }
@@ -22,4 +25,47 @@ h1, h2 {
   padding: 0;
 }
 
-h2 { color: #777; }
+h2 { color: #7f8c8d; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  border: 1px solid $color_light;
+  border-radius: 5px;
+  color: $color_light;
+  display: inline-block;
+  margin-top: 1em;
+  padding: 7px 20px;
+
+  -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+     -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+      -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+          transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  &:hover {
+    border-color: $color_dark;
+    color: $color_dark;
+  }
+}
+
+.footer {
+  margin: 3em 0;
+
+  p {
+    color: $color_light;
+    text-align: center;
+  }
+
+  a {
+    -webkit-transition: color 0.2s ease-in-out;
+       -moz-transition: color 0.2s ease-in-out;
+        -ms-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out;
+
+    &:hover { color: $color_dark; }
+  }
+}
+

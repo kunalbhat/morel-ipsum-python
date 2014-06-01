@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
+    <meta charset='utf-8'>
+    <meta name='description' content="Morel ipsum is a fungi-based 'lorem ipsum' generator. It's also very nice looking.">
     <title>Morel Ipsum - A fungi-based 'lorem ipsum' generator</title>
     <link rel='stylesheet' href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
     <div class='site-container'>
-      <header>
+      <header class='header'>
         <h1>Morel Ipsum</h1>
         <h2>A fungi-based 'lorem ipsum' generator</h2>
+
+        <a href='/' class='button'>More fungi</a>
       </header>
 
       {% for paragraph in morel %}
         <p>{{ paragraph }}</p>
       {% endfor %}
+
+      <footer class='footer'>
+        <p>Made by <a href='http://twitter.com/kunalbhat'>@kunalbhat</a></p>
+      </footer>
     </div>
   </body>
 </html>
