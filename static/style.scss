@@ -1,6 +1,13 @@
 $color_light: #bdc3c7;
 $color_dark:  #7f8c8d;
 
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -105,3 +112,9 @@ a {
   }
 }
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+  p { font-size: 14px; }
+
+  .header { margin: 1em 0; }
+}
